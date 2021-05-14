@@ -1,2 +1,6 @@
 # anEAThing
- Eat what? Anything! 
+Eat what? Anything! 
+
+Just a small personal project.
+
+Created using Spring Boot and Angular.
