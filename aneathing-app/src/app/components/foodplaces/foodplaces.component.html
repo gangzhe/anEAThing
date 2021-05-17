@@ -1,0 +1,10 @@
+<app-addfoodplace
+ (onAddFoodPlace)="addFoodPlace($event)">
+</app-addfoodplace>
+
+<app-foodplace-item
+ *ngFor="let foodPlace of foodPlaces"
+ [foodPlace]="foodPlace" 
+ (onDeleteFoodPlace)="deleteFoodPlace(foodPlace)"
+ (onEditFoodPlace)="editFoodPlace(foodPlace)">
+</app-foodplace-item>

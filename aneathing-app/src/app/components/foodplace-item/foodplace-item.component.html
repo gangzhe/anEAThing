@@ -1,0 +1,10 @@
+<div class="foodPlace" >
+    <h3>
+        {{foodPlace.name}} 
+        <h3>
+            <fa-icon [icon]="faEdit" (click)="onEdit(foodPlace)"></fa-icon>
+            <fa-icon [icon]="faTimes" [ngStyle]="{color: 'red'}" (click)="onDelete(foodPlace)"></fa-icon>
+        </h3>
+    </h3>
+    <p>{{foodPlace.cuisine}}</p>
+</div>

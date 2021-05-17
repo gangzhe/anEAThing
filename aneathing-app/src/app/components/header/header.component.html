@@ -1,0 +1,17 @@
+<header>
+    <h1>{{title}}</h1>
+    <h1>
+        <app-button
+            *ngIf="hasRoute('/')"
+            color="{{showSearchFoodPlace ? 'red' : 'blue'}}" 
+            text="{{showSearchFoodPlace ? 'Close' : 'Search'}}" 
+            (btnClick)="toggleSearchFoodPlace()">
+        </app-button>
+        <app-button
+            *ngIf="hasRoute('/')"
+            color="{{showAddFoodPlace ? 'red' : 'green'}}" 
+            text="{{showAddFoodPlace ? 'Close' : 'Add'}}" 
+            (btnClick)="toggleAddFoodPlace()">
+        </app-button>
+    </h1>
+</header>
