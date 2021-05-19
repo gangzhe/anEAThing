@@ -5,9 +5,10 @@ import java.io.Serializable;
 
 @Entity //map class to database
 public class FoodPlace implements Serializable {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(nullable = false, updatable = false) //cannot change id once created
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false)
     private Long id;
     private String category; //brunch, dinner, supper
     private String cuisine;

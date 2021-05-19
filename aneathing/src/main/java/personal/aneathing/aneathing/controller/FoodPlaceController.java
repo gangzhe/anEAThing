@@ -1,4 +1,4 @@
-package personal.aneathing.aneathing;
+package personal.aneathing.aneathing.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,13 +30,13 @@ public class FoodPlaceController {
         return new ResponseEntity<>(foodPlace, HttpStatus.OK);
     }
 
-    @GetMapping("/findbycategory/{category}") //todo: return list
+    @GetMapping("/findbycategory/{category}")
     public ResponseEntity<List<FoodPlace>> getFoodPlacesByCategory(@PathVariable("category") String category) {
         List<FoodPlace> foodPlaces = foodPlaceService.findFoodPlacesByCategory(category);
         return new ResponseEntity<>(foodPlaces, HttpStatus.OK);
     }
 
-    @GetMapping("/findbycuisine/{cuisine}") //todo: return list
+    @GetMapping("/findbycuisine/{cuisine}")
     public ResponseEntity<List<FoodPlace>> getFoodPlacesByCuisine(@PathVariable("cuisine") String cuisine) {
         List<FoodPlace> foodPlaces = foodPlaceService.findFoodPlacesByCuisine(cuisine);
         return new ResponseEntity<>(foodPlaces, HttpStatus.OK);
@@ -54,8 +54,8 @@ public class FoodPlaceController {
         return new ResponseEntity<>(newFoodPlace, HttpStatus.CREATED);
     }
 
-    @PutMapping("/update")
-    public ResponseEntity<FoodPlace> updateFoodPlace(@RequestBody FoodPlace foodPlace) {
+    @PutMapping("/update/{id}")
+    public ResponseEntity<FoodPlace> updateFoodPlace(@RequestBody FoodPlace foodPlace, @PathVariable("id") Long id) {
         FoodPlace updatedFoodPlace = foodPlaceService.updateFoodPlace(foodPlace);
         return new ResponseEntity<>(updatedFoodPlace, HttpStatus.OK);
     }

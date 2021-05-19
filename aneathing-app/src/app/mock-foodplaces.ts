@@ -10,7 +10,7 @@ export const FOODPLACES: FoodPlace[] =
         "name": "Koma",
         "remarks": "Nice interior",
         "review": "",
-        "imageUrl": "https://komasingapore.com/wp-content/gallery/gallery/S155_0009_Final.jpg"
+        "imageURL": "https://komasingapore.com/wp-content/gallery/gallery/S155_0009_Final.jpg"
     },
     {
         "id": 5,
@@ -19,7 +19,7 @@ export const FOODPLACES: FoodPlace[] =
         "name": "Three Buns",
         "remarks": "",
         "review": "Delicious burgers",
-        "imageUrl": "https://www.instagram.com/p/B9gQMf1hgEb/"
+        "imageURL": "https://www.instagram.com/p/B9gQMf1hgEb/"
     },
     {
         "id": 6,
@@ -28,6 +28,6 @@ export const FOODPLACES: FoodPlace[] =
         "name": "WNP Mala",
         "remarks": "",
         "review": "Decent mala",
-        "imageUrl": ""
+        "imageURL": ""
     }
 ]

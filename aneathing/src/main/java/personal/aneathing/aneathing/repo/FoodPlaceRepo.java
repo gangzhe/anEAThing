@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface FoodPlaceRepo extends JpaRepository<FoodPlace, Long>  {
+
     void deleteFoodPlaceById(Long id);
 
     Optional<FoodPlace> findFoodPlaceById(Long id);

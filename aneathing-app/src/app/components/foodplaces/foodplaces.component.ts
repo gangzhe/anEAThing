@@ -25,8 +25,9 @@ export class FoodplacesComponent implements OnInit {
     this.foodPlaceService.addFoodPlace(foodPlace).subscribe((foodPlace) => (this.foodPlaces.push(foodPlace)));
   }
 
-  editFoodPlace() {
-    console.log("Edit");
+  editFoodPlace(foodPlace: FoodPlace) {
+    console.log("foodplace: Hello");
+    this.foodPlaceService.editFoodPlace(foodPlace).subscribe();
   }
 
   searchFoodPlaceById(foodPlace: FoodPlace) {

@@ -5,5 +5,5 @@ export interface FoodPlace {
     name?: string;
     remarks?: string;
     review?: string;
-    imageUrl?: string;
+    imageURL?: string;
 }

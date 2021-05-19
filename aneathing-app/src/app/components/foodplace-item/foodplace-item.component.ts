@@ -26,8 +26,8 @@ export class FoodplaceItemComponent implements OnInit {
   }
 
   onEdit(foodPlace: FoodPlace) {
+    console.log("foodplace item: Hello");
     this.onEditFoodPlace.emit(foodPlace);
-    //console.log("Hello");
   }
 
   onInfo(foodPlace: FoodPlace) {

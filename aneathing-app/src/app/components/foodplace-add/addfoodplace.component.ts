@@ -18,19 +18,19 @@ export class AddfoodplaceComponent implements OnInit {
   cuisine: string;
   remarks: string;
   review: string;
-  imageUrl: string;
+  imageURL: string;
   showAddFoodPlace: boolean;
   subscription: Subscription;
 
   constructor(private uiService: UiService) { 
-    this.subscription = this.uiService.onToggleAdd().subscribe((value) => (this.showAddFoodPlace = value)); //to change when click
+    this.subscription = this.uiService.onToggleAdd().subscribe((value) => (this.showAddFoodPlace = value)); 
   }
 
   ngOnInit(): void {
   }
 
   onSubmit() {
-    if(!this.name || !this.cuisine || !this.category) {
+      if(!this.name || !this.cuisine || !this.category) {
       alert("Name, Cuisine and Category are required!");
       return;
     }
@@ -42,7 +42,7 @@ export class AddfoodplaceComponent implements OnInit {
       cuisine: this.cuisine,
       remarks: this.remarks,
       review: this.review,
-      imageUrl: this.imageUrl
+      imageURL: this.imageURL
     }
 
     // emit event
@@ -53,7 +53,8 @@ export class AddfoodplaceComponent implements OnInit {
     this.cuisine = '';
     this.remarks = '';
     this.review = '';
-    this.imageUrl = '';
+    this.imageURL = '';
+    
   }
 
 }

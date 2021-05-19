@@ -13,9 +13,9 @@ export class SearchComponent implements OnInit {
 
   @Output() onSearchFoodPlaceByName: EventEmitter<FoodPlace> = new EventEmitter();
 
-  name?: string;
-  cuisine?: string;
-  category?: string;
+  name: string;
+  cuisine: string;
+  category: string;
   showSearchFoodPlace: boolean;
   subscription: Subscription;
 
@@ -36,7 +36,7 @@ export class SearchComponent implements OnInit {
 
     // emit event
     //this.onSearchFoodPlaceByName.emit(this.name);
-    console.log("hi");
+    console.log("Search submitted");
 
     this.name = '';
     this.category = '';

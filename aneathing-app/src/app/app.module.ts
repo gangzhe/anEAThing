@@ -11,18 +11,12 @@ import { HeaderComponent } from './components/header/header.component';
 import { ButtonComponent } from './components/button/button.component';
 import { FoodplacesComponent } from './components/foodplaces/foodplaces.component';
 import { FoodplaceItemComponent } from './components/foodplace-item/foodplace-item.component';
-import { AddfoodplaceComponent } from './components/addfoodplace/addfoodplace.component';
+import { AddfoodplaceComponent } from './components/foodplace-add/addfoodplace.component';
 import { AboutComponent } from './components/about/about.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SearchComponent } from './components/search/search.component';
 import { FoodplaceInfoComponent } from './components/foodplace-info/foodplace-info.component';
-
-
-const appRoutes: Routes = [
-  {path: '', component: FoodplacesComponent},
-  {path: 'about', component: AboutComponent},
-  {path: 'info', component: FoodplaceInfoComponent}
-]
+import { FoodplaceEditComponent } from './components/foodplace-edit/foodplace-edit.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +29,8 @@ const appRoutes: Routes = [
     AboutComponent,
     FooterComponent,
     SearchComponent,
-    FoodplaceInfoComponent
+    FoodplaceInfoComponent,
+    FoodplaceEditComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +38,6 @@ const appRoutes: Routes = [
     FontAwesomeModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes, {enableTracing: true})
   ],
   providers: [],
   bootstrap: [AppComponent]

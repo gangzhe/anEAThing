@@ -52,4 +52,9 @@ export class FoodplaceService {
     return this.http.post<FoodPlace>(this.apiUrl+'add', foodPlace, httpOptions);
   }
 
+  editFoodPlace(foodPlace: FoodPlace): Observable<FoodPlace> {
+    const url = `${this.apiUrl}/update/${foodPlace.id}`;
+    return this.http.put<FoodPlace>(url, foodPlace, httpOptions);
+  }
+
 }
