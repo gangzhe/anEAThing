@@ -15,7 +15,7 @@ const httpOptions = {
 })
 export class FoodplaceService {
 
-  private apiUrl = environment.apiBaseUrl;
+  private apiUrl = 'http://localhost:8080/aneathing';
 
   constructor(private http: HttpClient) { }
 
