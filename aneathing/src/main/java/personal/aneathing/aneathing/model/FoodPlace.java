@@ -10,12 +10,15 @@ public class FoodPlace implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
     private Long id;
-    private String category; //brunch, dinner, supper
+    private String category;
     private String cuisine;
     private String name;
     private String remarks;
     private String review;
+    private Boolean revisit;
     private String imageURL;
+    private String restaurantUrl;
+    private String mapUrl;
 
     public FoodPlace() {
     }
@@ -27,7 +30,10 @@ public class FoodPlace implements Serializable {
         this.name = name;
         this.remarks = remarks;
         this.review = review;
+        this.revisit = revisit;
         this.imageURL = imageURL;
+        this.restaurantUrl = restaurantUrl;
+        this.mapUrl = mapUrl;
     }
 
     public Long getId() {
@@ -86,6 +92,30 @@ public class FoodPlace implements Serializable {
         this.imageURL = imageURL;
     }
 
+    public Boolean getRevisit() {
+        return revisit;
+    }
+
+    public void setRevisit(Boolean revisit) {
+        this.revisit = revisit;
+    }
+
+    public String getRestaurantUrl() {
+        return restaurantUrl;
+    }
+
+    public void setRestaurantUrl(String restaurantUrl) {
+        this.restaurantUrl = restaurantUrl;
+    }
+
+    public String getMapUrl() {
+        return mapUrl;
+    }
+
+    public void setMapUrl(String mapUrl) {
+        this.mapUrl = mapUrl;
+    }
+
     @Override
     public String toString() {
         return "FoodPlace{" +
@@ -95,7 +125,10 @@ public class FoodPlace implements Serializable {
                 ", name='" + name + '\'' +
                 ", remarks='" + remarks + '\'' +
                 ", review='" + review + '\'' +
+                ", revisit=" + revisit +
                 ", imageURL='" + imageURL + '\'' +
+                ", restaurantUrl='" + restaurantUrl + '\'' +
+                ", mapUrl='" + mapUrl + '\'' +
                 '}';
     }
 }

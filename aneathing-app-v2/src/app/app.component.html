@@ -1,6 +1,6 @@
 <!--NAV BAR & SEARCH-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" style="color:white;">anEAThing</a>
+  <a href="/" class="navbar-brand" style="color:white;">anEAThing</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -11,34 +11,37 @@
         </li>
      </ul>
      <form class="form-inline my-2 my-lg-0">
-        <input type="search" (ngModelChange)="searchFoodPlaces(key.value)" #key="ngModel" ngModel name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search restaurants..." required>
+         <input type="search" (ngModelChange)="searchFoodPlaces(key.value)" #key="ngModel" ngModel name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search restaurants..." required>
+         <a (click)="getRandomFoodPlace()" style="color: white">随便</a>
      </form>
   </div>
 </nav>
 
 <!--CARDS-->
-<div class="container" id="main-container">
+<div class="container-fluid" id="main-container">
     <div class="row">
         <div *ngFor="let foodPlace of foodPlaces" class="col-md-6 col-xl-3">
             <div class="card m-b-30">
                 <div class="card-body row">
+                    <div class="topright"><a class="fa fa-smile-o"></a></div>
                     <div class="col-6">
                         <a href="{{foodPlace?.imageURL}}"><img src="{{foodPlace?.imageURL}}" alt="..." class="img-fluid"></a>
                     </div>
                     <div class="col-6 card-title align-self-center mb-0">
-                        <h5>{{foodPlace?.name}}</h5>
+                        <a href="{{foodPlace?.restaurantUrl}}"><h5>{{foodPlace?.name}}</h5></a>
                         <p class="m-0">{{foodPlace?.cuisine}}</p>
                         <p class="m-0">{{foodPlace?.category}}</p>
                     </div>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Review: {{foodPlace?.review}}</li>
-                    <li class="list-group-item">Remarks: {{foodPlace?.remarks}}</li>
+                    <li class="list-group-item"><h6>Review: </h6>{{foodPlace?.review}}</li>
+                    <li class="list-group-item"><h6>Remarks: </h6>{{foodPlace?.remarks}}</li>
                 </ul>
                 <div class="card-body">
                     <div class="float-right btn-group btn-group-sm">
+                        <a href="{{foodPlace?.mapUrl}}" class="btn btn-info"><i class="fa fa-map-marker"></i></a>
                         <a (click)="onOpenModal(foodPlace, 'update')" class="btn btn-primary tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
-                        <a (click)="onOpenModal(foodPlace, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                        <a (click)="onOpenModal(foodPlace, 'delete')" class="btn btn-danger" data-placement="top" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-times"></i></a>
                     </div>
                 </div>
             </div>
@@ -78,10 +81,18 @@
           <div class="form-group">
             <label for="remarks">Remarks</label>
             <input type="text" ngModel name="remarks" class="form-control" id="remarks" placeholder="Remarks">
-         </div>
+          </div>
           <div class="form-group">
              <label for="imageURL">Image URL</label>
              <input type="text" ngModel name="imageURL" class="form-control" id="imageURL" placeholder="Image URL (ending with .jpg)">
+          </div>
+          <div class="form-group">
+            <label for="restaurantUrl">Restaurant URL</label>
+            <input type="text" ngModel name="restaurantUrl" class="form-control" id="restaurantUrl" placeholder="Link to restaurant / menu">
+          </div>
+          <div class="form-group">
+            <label for="mapUrl">Location URL</label>
+            <input type="text" ngModel name="mapUrl" class="form-control" id="mapUrl" placeholder="Link to restaurant location">
           </div>
           <div class="modal-footer">
              <button type="button" id="add-foodplace-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -130,6 +141,14 @@
             <div class="form-group">
               <label for="imageURL">Image URL</label>
               <input type="text" ngModel="{{updateFoodPlace?.imageURL}}" name="imageURL" class="form-control" id="imageURL" placeholder="Image URL (ending with .jpg)">
+            </div>
+            <div class="form-group">
+               <label for="restaurantUrl">Restaurant URL</label>
+               <input type="text" ngModel="{{updateFoodPlace?.restaurantUrl}}" name="restaurantUrl" class="form-control" id="restaurantUrl" placeholder="Link to restaurant / menu">
+            </div>
+            <div class="form-group">
+               <label for="mapUrl">Location URL</label>
+               <input type="text" ngModel="{{updateFoodPlace?.mapUrl}}" name="mapUrl" class="form-control" id="mapUrl" placeholder="Link to restaurant location">
             </div>
             <div class="modal-footer">
               <button type="button" id="update-foodplace-form" class="btn btn-secondary" data-dismiss="modal">Close</button>

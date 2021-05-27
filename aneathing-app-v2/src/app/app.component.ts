@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -11,10 +12,11 @@ import { FoodplaceService } from './services/foodplace.service';
 })
 export class AppComponent implements OnInit {
   public foodPlaces: FoodPlace[];
+  public foodPlace: FoodPlace;
   public updateFoodPlace: FoodPlace;
   public deleteFoodPlace: FoodPlace;
 
-  constructor(private foodPlaceService: FoodplaceService) { }
+  constructor(private foodPlaceService: FoodplaceService, private _location: Location) { }
 
   ngOnInit() {
     this.getFoodPlaces();
@@ -24,6 +26,7 @@ export class AppComponent implements OnInit {
     this.foodPlaceService.getFoodPlaces().subscribe(
       (response: FoodPlace[]) => {
         this.foodPlaces = response;
+        console.log(`Number of restaurants = ${this.foodPlaces.length}`);
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -105,6 +108,13 @@ export class AppComponent implements OnInit {
     if (results.length === 0 || !key) {
       this.getFoodPlaces();
     }
+  }
+
+  public getRandomFoodPlace(): void {
+    //this.getFoodPlaces();
+    const randomFoodPlace = this.foodPlaces[Math.floor(Math.random() * this.foodPlaces.length) + 1];
+    console.log(randomFoodPlace.name);
+    this.searchFoodPlaces(randomFoodPlace.name);
   }
 
 }

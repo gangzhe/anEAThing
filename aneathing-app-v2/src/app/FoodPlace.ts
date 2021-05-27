@@ -6,4 +6,7 @@ export interface FoodPlace {
     remarks: string;
     review: string;
     imageURL: string;
+    restaurantUrl: string;
+    mapUrl: string;
+    revisit: boolean;
 }
